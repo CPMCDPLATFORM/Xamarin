@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="PAYMENTORDERDESIGN.AddCardPage"
+             BackgroundColor="LightGray">
+    <AbsoluteLayout IsEnabled="True" Padding="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent">
+        <!--<Header Section>-->
+        <Frame AbsoluteLayout.LayoutBounds="0,0,370,45" AbsoluteLayout.LayoutFlags="PositionProportional" BackgroundColor="White" BorderColor="WhiteSmoke" >
+            <AbsoluteLayout>
+                <ImageButton Source="left.png"  AbsoluteLayout.LayoutBounds="0,0.5,20,20" BackgroundColor="Transparent" AbsoluteLayout.LayoutFlags="PositionProportional" Clicked="ImageButton_Clicked"/>
+                <Label Text="Payment" TextColor="Gray" FontAttributes="None" FontSize="20" AbsoluteLayout.LayoutBounds="0.5,0.3,150,50" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+            </AbsoluteLayout>
+        </Frame>
+        
+        <!--<Card Format>-->
+        <Frame AbsoluteLayout.LayoutBounds="0.5,0.12,320,150" AbsoluteLayout.LayoutFlags="PositionProportional" CornerRadius="10" HasShadow="False">
+            <Frame.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#C74387" Offset="0.1" />
+                    <GradientStop Color="#8244A7" Offset="1.0" />
+                </LinearGradientBrush>
+            </Frame.Background>
+            <Grid Padding="0" ColumnSpacing="0" RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Text="DEBIT CARD / CREDIT CARD" FontSize="12" FontAttributes="Bold" TextColor="WhiteSmoke"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="XXXX - XXXX - XXXX - XXXX" FontAttributes="Bold" TextColor="WhiteSmoke" AbsoluteLayout.LayoutBounds="0,0.5,190,50" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                <Label Grid.Row="2" Grid.Column="0" Text="Card Holder Name" FontAttributes="Bold" FontSize="10" TextColor="WhiteSmoke" AbsoluteLayout.LayoutBounds="0,1,190,50" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                <Label Grid.Row="2" Grid.Column="1" Text="Exp 04-23" FontAttributes="Bold" FontSize="10" TextColor="WhiteSmoke" AbsoluteLayout.LayoutBounds="0.9,1,190,50" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                <Label Grid.Row="2" Grid.Column="3" Text="CVV 123" FontAttributes="Bold" FontSize="10" TextColor="WhiteSmoke" AbsoluteLayout.LayoutBounds="0,1,190,50" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+            </Grid>
+        </Frame>
+        
+        <!--<CRUD Form for Entry Card Detail>-->
+        <Frame AbsoluteLayout.LayoutBounds="0.5,0.72,320,300" AbsoluteLayout.LayoutFlags="PositionProportional" xct:CornerRadiusEffect.CornerRadius="10,10,10,10" HasShadow="False" BackgroundColor="White">
+            <StackLayout>
+                <!--<Card Number>-->
+                <Label Text="Card Number" TextColor="Gray"/>
+                <Frame BackgroundColor="Transparent" BorderColor="LightGray" Margin="0" Padding="0" >
+                    <Entry Placeholder="XXXX-XXXX-XXXX-XXXX" Keyboard="Numeric" FontSize="15" PlaceholderColor="Gray" TextColor="gray" Margin="0" />
+                </Frame>
+
+                <Grid Padding="0" ColumnSpacing="0" RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    
+                    <!--<Expiration Date>-->
+                    <Label Text="Expiration Date" HorizontalOptions="Start" TextColor="Gray" Grid.Row="0" Grid.Column="0"/>
+                    <Frame BackgroundColor="Transparent" BorderColor="LightGray" HorizontalOptions="Center" WidthRequest="145" Margin="0" Padding="0" Grid.Row="1" Grid.Column="0">
+                        <!--<Entry Placeholder="04-23" FontSize="15"  Keyboard="Numeric" PlaceholderColor="Gray" TextColor="gray" Margin="0" />-->
+                        <DatePicker Format="MM/yy" TextColor="Gray" IsTabStop="False"    />
+                    </Frame>
+                        
+                    <!--<CVV>-->
+                    <Label Text="CVV" TextColor="Gray" HorizontalOptions="Center" Grid.Row="0" Grid.Column="1"/>
+                    <Frame BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" WidthRequest="105" BorderColor="LightGray" Margin="0" Padding="0" Grid.Row="1" Grid.Column="1" >
+                        <Entry Placeholder="Enter CVV" Keyboard="Numeric" FontSize="15" PlaceholderColor="Gray" TextColor="gray" Margin="0" />
+                    </Frame>
+                </Grid>
+                    
+                <!--<Name on Card>-->
+                <Label Text="Name on Card" TextColor="Gray"/>
+                <Frame BackgroundColor="Transparent" BorderColor="LightGray" Margin="0" Padding="0"  >
+                    <Entry Placeholder="Enter Name" FontSize="15" PlaceholderColor="Gray" TextColor="gray" Margin="0" />
+                </Frame>
+                <Grid Padding="0" ColumnSpacing="0" RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <!--<Save CheckBox>-->
+                    <CheckBox Color="Gray" Grid.Row="0" Grid.Column="0"/>
+                    <Label Text="Save this card" FontSize="18" TextColor="gray" Grid.Row="0" Grid.Column="1"/>
+                </Grid>
+            </StackLayout>
+        </Frame>
+        
+        <!--<Button for Add>-->
+        <Button Text="ADD CARD" BackgroundColor="#EA408E" CornerRadius="35" HeightRequest="35" WidthRequest="170" TextColor="White" AbsoluteLayout.LayoutBounds="0.5,0.95,180,36" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+    </AbsoluteLayout>
+</ContentPage>
